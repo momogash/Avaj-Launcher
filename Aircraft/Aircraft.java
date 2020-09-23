@@ -6,6 +6,7 @@ public abstract class Aircraft
 	protected String name;
 	protected Coordinates coordinates;
 	private static long idCounter = 1;
+	protected boolean unregister;
 	
 	protected Aircraft(String name, Coordinates coordinates)
 	{

@@ -11,9 +11,8 @@ public class WeatherTower extends Tower {
 		return weather;
 				
 	}
-	private void changeWeather()
-	{
-		//super.conditionsChanged();
-	}
+	 public void changeWeather(){
+	        super.conditionsChanged();
+	    }
 	
 }
