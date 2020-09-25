@@ -24,15 +24,20 @@ public class WriteToFile {
 		 if (fileWritter  != null) {
 	            return fileWritter ;
 	        }
-//	
-//		if(newFile.exists())
-//			System.out.println("File already exists");
 		
 			try {
-				newFile = new File("Simulation.txt");//storing the file name
+				fileWritter = new WriteToFile();
+				newFile = new File("Simulation.txt");
+				//newFile.createNewFile();//storing the file name
 				myWriter = new FileWriter(newFile);//create the file
 				buffw = new BufferedWriter(myWriter);//load the file into the buffer for writting
 				newFile.createNewFile();
+				if (newFile.createNewFile()) {
+					System.out.println("file created"+newFile.getName());
+				}
+//				else {
+//					System.out.println("File already exists!");
+//				}
 			}
 			catch (IOException e){} 
 			

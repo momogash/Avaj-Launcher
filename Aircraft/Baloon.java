@@ -52,6 +52,8 @@ public class Baloon extends Aircraft implements Flyable {
 	public void registerTower(WeatherTower weatherTower) {
 		 weatherTower.register(this);
 		 this.weatherTower = weatherTower;
+		// String write = "Tower Says: Baloon#" + super.name + "(" + super.id + ") registered to weather tower.";
+	        this.weatherTower = weatherTower;
 		 WriteToFile.createFile().writeToFile("Message from Tower: Baloon#" + super.name + "("+ super.id +") has been registered to fly!");
 	        
 
