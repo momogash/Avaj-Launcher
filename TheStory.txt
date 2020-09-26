@@ -1,0 +1,16 @@
+while ((line = reader.readLine()) != null)
+now we start to read simulation text each line until null is reached starting at index 1 skipping simulation count 25
+each line read is to create a new aircraft from AircraftFactory class.
+
+AircraftFactory class has a method of type Flyable called newAircraft which takes in a 
+1) String(Type of aircraft to create, Baloon,JetPlane,etc),
+2) String(name of the aircraft to create, B1, H1)
+3) Int(longitude)
+4) Int (latitude)
+5) Int (height)t
+The newAircraft method then checks if the type is a Baloon or Helicopter or JetPlane,
+				 
+The last 3 integers will be stored in an object of type Coordinates named coordinates, which will be used manipulates the aircraft's coordinates in the event of weather(Rain, Snow, Fog, Sun)
+
+ 
+				

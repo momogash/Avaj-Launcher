@@ -22,7 +22,7 @@ public class Helicopter extends Aircraft implements Flyable {
 			Helicopter.put("RAIN", "Some rain from the sky....");
 			Helicopter.put("SNOW", "Snowy day, great for christmas but not for flying");
 			
-			String Identity = "Helicopter#" + super.name + "("+this.id +"): ";
+			String Identity = "Helicopter " + super.name + "("+this.id +"): ";
 			
 			switch(weather) {
 			case "SUN":
@@ -46,11 +46,7 @@ public class Helicopter extends Aircraft implements Flyable {
 				WriteToFile.createFile().writeToFile(Identity + Helicopter.get("SNOW"));
 				break;
 				
-			}
-			
-		
-		
-		
+			}	
 	}
 
 	public void registerTower(WeatherTower weatherTower) {

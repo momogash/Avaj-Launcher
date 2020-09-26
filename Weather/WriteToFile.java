@@ -17,7 +17,6 @@ public class WriteToFile {
 
     }
 	
-	//creating the file to be written in
 	
 	public static WriteToFile createFile() {
 		
@@ -28,16 +27,8 @@ public class WriteToFile {
 			try {
 				fileWritter = new WriteToFile();
 				newFile = new File("Simulation.txt");
-				//newFile.createNewFile();//storing the file name
 				myWriter = new FileWriter(newFile);//create the file
 				buffw = new BufferedWriter(myWriter);//load the file into the buffer for writting
-				newFile.createNewFile();
-				if (newFile.createNewFile()) {
-					System.out.println("file created"+newFile.getName());
-				}
-//				else {
-//					System.out.println("File already exists!");
-//				}
 			}
 			catch (IOException e){} 
 			
@@ -47,12 +38,9 @@ public class WriteToFile {
 		
 	public void writeToFile(String str){
 			try {
-				//opening the file and writting to the file
-				FileWriter filew = new FileWriter(newFile);
-				BufferedWriter buffw = new BufferedWriter(filew);
+				
 				buffw.write(str);
 				buffw.newLine();
-				buffw.close();
 				System.out.println("Successfully written to file");
 			}
 			catch (Exception e) {

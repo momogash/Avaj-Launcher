@@ -10,12 +10,12 @@ public abstract class AircraftFactory {
 		
 		if(type.equals("Helicopter"))
 			return new Helicopter(name,coordinates);
-		else if(type.equals("Jetplane"))
+		else if(type.equals("JetPlane"))
 			return new JetPlane(name,coordinates);
 		else if(type.equals("Baloon"))
 			return new Baloon(name,coordinates);
 		
-		else return null;
+		return null;
 		
 		
 	}

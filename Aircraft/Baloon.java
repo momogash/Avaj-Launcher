@@ -22,7 +22,7 @@ public class Baloon extends Aircraft implements Flyable {
 			Baloon.put("RAIN", "Some rain from the sky....");
 			Baloon.put("SNOW", "Snowy day, great for christmas but not for flying");
 			
-			String Identity = "Baloon#" + super.name + "("+this.id +"): ";
+			String Identity = "Baloon " + super.name + "("+this.id +"): ";
 			
 			switch(weather) {
 			case "SUN":
@@ -52,9 +52,8 @@ public class Baloon extends Aircraft implements Flyable {
 	public void registerTower(WeatherTower weatherTower) {
 		 weatherTower.register(this);
 		 this.weatherTower = weatherTower;
-		// String write = "Tower Says: Baloon#" + super.name + "(" + super.id + ") registered to weather tower.";
-	        this.weatherTower = weatherTower;
-		 WriteToFile.createFile().writeToFile("Message from Tower: Baloon#" + super.name + "("+ super.id +") has been registered to fly!");
+		 this.weatherTower = weatherTower;
+		 WriteToFile.createFile().writeToFile("Message from Tower: Baloon " + super.name + "("+ super.id +") has been registered to fly!");
 	        
 
 		
