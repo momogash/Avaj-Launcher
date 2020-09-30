@@ -13,7 +13,7 @@ public class Simulator {
 	
 	
 	private static WeatherTower weatherTower;
-    private static List<Flyable> flyables = new ArrayList<Flyable>();
+    private static ArrayList<Flyable> flyables = new ArrayList<Flyable>();
     
 
 	public static void main(String[] args) throws InterruptedException {
@@ -34,9 +34,9 @@ public class Simulator {
 			if(line !=null) {
 				weatherTower = new WeatherTower();
 				
-				int simulationCount = Integer.parseInt(line.split(" ")[0]);
+				int scenario = Integer.parseInt(line.split(" ")[0]);
 				
-				if (simulationCount < 0)
+				if (scenario < 0)
 				{
 					System.out.println("The simulation count cannot be negetive");
                     System.exit(1);
@@ -45,23 +45,32 @@ public class Simulator {
 				
 				while ((line = reader.readLine()) != null) {
 
-	                  //but as we read we store each 
+	                
 	                  Flyable flyable = AircraftFactory.newAircraft(line.split(" ")[0], line.split(" ")[1],
 	                            Integer.parseInt(line.split(" ")[2]), Integer.parseInt(line.split(" ")[3]),
 	                            Integer.parseInt(line.split(" ")[4]));
-	                    
+
 	                    if (flyable != null)
 	                        flyables.add(flyable);
 	                    
 	                }
-				for (Flyable flyable : flyables) {
+				
+				//register Aircrafts to tower
+				int i = 0;
+				Flyable flyable;
+				while(i < flyables.size()) {
+					flyable = flyables.get(i);
 					System.out.println(flyable);
-                    flyable.registerTower(weatherTower);
-                }
-
-                for (int i = 1; i <= simulationCount; i++) {
-                    WriteToFile.createFile().writeToFile("\n"+"count" + i);
-                    weatherTower.changeWeather();
+					flyable.registerTower(weatherTower);
+					i++;
+				
+				}
+//register aircraft to weather tower
+				int j = 1;
+				while(j <= scenario ) {
+					WrittingToFile.createFile().writeToFile("\n"+"scenario: " + j);
+					weatherTower.changeWeather();
+					j++;
                 }
 
 			}
@@ -83,7 +92,7 @@ public class Simulator {
 	    } catch (NumberFormatException e) {
 	            System.out.println("not a valid number entered in file");
 	    } finally {
-	            WriteToFile.createFile().Close();
+	            WrittingToFile.createFile().Close();
 	        }
 	}
 }

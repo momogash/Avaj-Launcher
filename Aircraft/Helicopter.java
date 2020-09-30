@@ -28,22 +28,22 @@ public class Helicopter extends Aircraft implements Flyable {
 			case "SUN":
 				super.coordinates.setLatitude(super.coordinates.getLatitude()+ 10);
 				super.coordinates.setHeight(super.coordinates.getHeight() + 2);
-				WriteToFile.createFile().writeToFile(Identity + Helicopter.get("SUN"));
+				WrittingToFile.createFile().writeToFile(Identity + Helicopter.get("SUN"));
 				break;
 				
 			case "RAIN":
 				super.coordinates.setLongitude(super.coordinates.getLongitude() + 5);
-				WriteToFile.createFile().writeToFile(Identity + Helicopter.get("RAIN"));
+				WrittingToFile.createFile().writeToFile(Identity + Helicopter.get("RAIN"));
 				break;
 				
 			case "FOG":
 				super.coordinates.setLongitude(super.coordinates.getLongitude() + 1);
-				WriteToFile.createFile().writeToFile(Identity + Helicopter.get("FOG"));
+				WrittingToFile.createFile().writeToFile(Identity + Helicopter.get("FOG"));
 				break;
 				
 			case "SNOW":
 				super.coordinates.setHeight(super.coordinates.getHeight() - 12);
-				WriteToFile.createFile().writeToFile(Identity + Helicopter.get("SNOW"));
+				WrittingToFile.createFile().writeToFile(Identity + Helicopter.get("SNOW"));
 				break;
 				
 			}	
@@ -52,7 +52,7 @@ public class Helicopter extends Aircraft implements Flyable {
 	public void registerTower(WeatherTower weatherTower) {
 		 weatherTower.register(this);
 		 this.weatherTower = weatherTower;
-		 WriteToFile.createFile().writeToFile("Message from Tower: Helicopter#" + super.name + "("+ super.id +") has been registered to fly!");
+		 WrittingToFile.createFile().writeToFile("Message from Tower: Helicopter " + super.name + "("+ super.id +") has been registered to fly!");
 	        
 
 		

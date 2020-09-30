@@ -28,22 +28,22 @@ public class Baloon extends Aircraft implements Flyable {
 			case "SUN":
 				super.coordinates.setLongitude(super.coordinates.getLongitude()+ 2);
 				super.coordinates.setHeight(super.coordinates.getHeight() + 4);
-				WriteToFile.createFile().writeToFile(Identity + Baloon.get("SUN"));
+				WrittingToFile.createFile().writeToFile(Identity + Baloon.get("SUN"));
 				break;
 				
 			case "RAIN":
 				super.coordinates.setHeight(super.coordinates.getHeight() - 5);
-				WriteToFile.createFile().writeToFile(Identity + Baloon.get("RAIN"));
+				WrittingToFile.createFile().writeToFile(Identity + Baloon.get("RAIN"));
 				break;
 				
 			case "FOG":
 				super.coordinates.setHeight(super.coordinates.getHeight() - 3);
-				WriteToFile.createFile().writeToFile(Identity + Baloon.get("FOG"));
+				WrittingToFile.createFile().writeToFile(Identity + Baloon.get("FOG"));
 				break;
 				
 			case "SNOW":
 				super.coordinates.setHeight(super.coordinates.getHeight() - 15);
-				WriteToFile.createFile().writeToFile(Identity + Baloon.get("SNOW"));
+				WrittingToFile.createFile().writeToFile(Identity + Baloon.get("SNOW"));
 				break;
 				
 			}
@@ -53,7 +53,7 @@ public class Baloon extends Aircraft implements Flyable {
 		 weatherTower.register(this);
 		 this.weatherTower = weatherTower;
 		 this.weatherTower = weatherTower;
-		 WriteToFile.createFile().writeToFile("Message from Tower: Baloon " + super.name + "("+ super.id +") has been registered to fly!");
+		 WrittingToFile.createFile().writeToFile("Message from Tower: Baloon " + super.name + "("+ super.id +") has been registered to fly!");
 	        
 
 		

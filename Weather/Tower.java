@@ -9,7 +9,7 @@ public abstract class Tower {
 	private ArrayList<Flyable> observers = new ArrayList<Flyable>();
 	
 	public void register(Flyable flyable) {
-		observers.add(flyable); //adds and element to array observers
+		observers.add(flyable); //adds all the strings received from flyable in simulation class
 	}
 	
 	public void unregister(Flyable flyable) {
@@ -17,8 +17,12 @@ public abstract class Tower {
 	}
 	
 	protected void conditionsChanged() {
-		for(int i = 0; i < observers.size(); i++)
+		
+		int i = 0;
+		while( i <observers.size()) {
 			observers.get(i).updateConditions();
+			i++;
+		}
 	}	
 
 }

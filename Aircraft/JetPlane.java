@@ -22,28 +22,28 @@ public class JetPlane extends Aircraft implements Flyable {
 			JetPlane.put("RAIN", "Some rain from the sky....");
 			JetPlane.put("SNOW", "Snowy day, great for christmas but not for flying");
 			
-			String Identity = "JetPlane#" + super.name + "("+this.id +"): ";
+			String Identity = "JetPlane " + super.name + "("+this.id +"): ";
 			
 			switch(weather) {
 			case "SUN":
 				super.coordinates.setLatitude(super.coordinates.getLatitude() + 10);
 				super.coordinates.setHeight(super.coordinates.getHeight() + 2);
-				WriteToFile.createFile().writeToFile(Identity + JetPlane.get("SUN"));
+				WrittingToFile.createFile().writeToFile(Identity + JetPlane.get("SUN"));
 				break;
 				
 			case "RAIN":
 				super.coordinates.setLatitude(super.coordinates.getLatitude() + 5);
-				WriteToFile.createFile().writeToFile(Identity + JetPlane.get("RAIN"));
+				WrittingToFile.createFile().writeToFile(Identity + JetPlane.get("RAIN"));
 				break;
 				
 			case "FOG":
 				super.coordinates.setLatitude(super.coordinates.getLatitude() + 1);
-				WriteToFile.createFile().writeToFile(Identity + JetPlane.get("FOG"));
+				WrittingToFile.createFile().writeToFile(Identity + JetPlane.get("FOG"));
 				break;
 				
 			case "SNOW":
 				super.coordinates.setHeight(super.coordinates.getHeight() - 7);
-				WriteToFile.createFile().writeToFile(Identity + JetPlane.get("SNOW"));
+				WrittingToFile.createFile().writeToFile(Identity + JetPlane.get("SNOW"));
 				break;
 				
 			}
@@ -52,7 +52,7 @@ public class JetPlane extends Aircraft implements Flyable {
 	public void registerTower(WeatherTower weatherTower) {
 		 weatherTower.register(this);
 		 this.weatherTower = weatherTower;
-		 WriteToFile.createFile().writeToFile("Message from Tower: JetPlane#" + super.name + "("+ super.id +") has been registered to fly!");
+		 WrittingToFile.createFile().writeToFile("Message from Tower: JetPlane " + super.name + "("+ super.id +") has been registered to fly!");
 	        
 
 		
