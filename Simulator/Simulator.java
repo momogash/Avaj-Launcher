@@ -1,6 +1,6 @@
 package Simulator;
 
-//import java.util.ArrayList;
+import java.util.ArrayList;
 import java.io.*;
 import java.util.*;
 
@@ -21,70 +21,49 @@ public class Simulator {
 
 		try {
 			
-//			if (args.length == 0)
-//			{
-//				System.out.println("must have atlest one arg input e.g scenario.txt");
-//				return;
-//			}
-			File path = new File("src/scenario.txt");
-			BufferedReader reader = new BufferedReader(new FileReader(path));
+			ReadingFile textFile = new ReadingFile();
+			ArrayList<String> fileContent = textFile.textFile(args[0]);
 			
-			String line = reader.readLine();
-			
-			if(line !=null) {
+
+			if(fileContent !=null) {
 				weatherTower = new WeatherTower();
 				
-				int scenario = Integer.parseInt(line.split(" ")[0]);
-				
-				if (scenario < 0)
-				{
-					System.out.println("The simulation count cannot be negetive");
-                    System.exit(1);
-				}
-				
-				
-				while ((line = reader.readLine()) != null) {
+				int scenario = Integer.parseInt(fileContent.get(0));				
+				int i = 1;
+				while (i < fileContent.size() -1) {
 
 	                
-	                  Flyable flyable = AircraftFactory.newAircraft(line.split(" ")[0], line.split(" ")[1],
-	                            Integer.parseInt(line.split(" ")[2]), Integer.parseInt(line.split(" ")[3]),
-	                            Integer.parseInt(line.split(" ")[4]));
+	                  Flyable flyable = AircraftFactory.newAircraft(fileContent.get(i).split(" ")[0], fileContent.get(i).split(" ")[1],
+	                            Integer.parseInt(fileContent.get(i).split(" ")[2]), Integer.parseInt(fileContent.get(i).split(" ")[3]),
+	                            Integer.parseInt(fileContent.get(i).split(" ")[4]));
 
 	                    if (flyable != null)
 	                        flyables.add(flyable);
+	                    i++;
 	                    
 	                }
 				
 				//register Aircrafts to tower
-				int i = 0;
+				int j = 0;
 				Flyable flyable;
-				while(i < flyables.size()) {
-					flyable = flyables.get(i);
+				while(j < flyables.size()) {
+					flyable = flyables.get(j);
 					System.out.println(flyable);
 					flyable.registerTower(weatherTower);
-					i++;
+					j++;
 				
 				}
 //register aircraft to weather tower
-				int j = 1;
-				while(j <= scenario ) {
-					WrittingToFile.createFile().writeToFile("\n"+"scenario: " + j);
+				int k = 1;
+				while(k <= scenario ) {
+					WrittingToFile.createFile().writeToFile("\n"+"scenario: " + k);
 					weatherTower.changeWeather();
-					j++;
+					k++;
                 }
 
 			}
-			reader.close();
+
 		}
-		catch (FileNotFoundException e){
-			
-			 System.out.println("No such file or directory ");
-			
-		
-			 }
-		catch (IOException e) {
-	            System.out.println("Unable to read file" + args[0]);
-	    } 
 			catch (ArrayIndexOutOfBoundsException e) {
 	            System.out.println("You did not specify the simulation file");
 	    } catch (NullPointerException e) {
