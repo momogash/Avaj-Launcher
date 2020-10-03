@@ -25,7 +25,6 @@ public class ReadingFile {
 				fileContent.add(scan.nextLine());
 			}
 			scan.close();
-			System.out.println(fileContent);
 			
 			//getting the simulations count and accounting for negatives
 			int simulationCount = Integer.parseInt(fileContent.get(0)); 
@@ -43,14 +42,19 @@ public class ReadingFile {
 				//System.out.println(line[0]);
 				if (line.length != 5)
 					System.out.println("Cannot create an aircraft with the given format");
-				if(!line[0].equals("Baloon") && !line[0].equals("JetPlane") && !line.equals("Helicopter"))
-					System.out.println("Please check the aircraft type:Baloon,JetPlane,Helicopter");
+				if(line[0].equals("Baloon") || line[0].equals("JetPlane") || line[0].equals("Helicopter"))
+				{
+					
 				int longitude = Integer.parseInt(line[2]);
 				int latitude = Integer.parseInt(line[3]);
 				int height = Integer.parseInt(line[4]);
 				
 				if( longitude <= 0 || latitude <= 0 || height <= 0)
 					System.out.println("Coordinates cannot be negetive");
+				
+				}
+				else
+				System.out.println("Please check the aircraft type:Baloon,JetPlane,Helicopter");
 				i++;
 			}
 		
@@ -65,9 +69,6 @@ public class ReadingFile {
 			System.out.println("No such file or directory ");
 		}
 		
-//		while (scan.hasNextLine()) {
-//			System.out.println(scan.hasNextLine());
-//		}
 		
 	return fileContent;
 	}

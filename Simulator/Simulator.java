@@ -43,16 +43,17 @@ public class Simulator {
 	                    
 	                }
 				
+				
 				//register Aircrafts to tower
 				int j = 0;
 				Flyable flyable;
 				while(j < flyables.size()) {
 					flyable = flyables.get(j);
-					System.out.println(flyable);
 					flyable.registerTower(weatherTower);
 					j++;
 				
 				}
+				
 //register aircraft to weather tower
 				int k = 1;
 				while(k <= scenario ) {

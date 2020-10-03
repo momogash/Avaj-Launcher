@@ -29,6 +29,7 @@ public class WrittingToFile {
 				newFile = new File("Simulation.txt");
 				myWriter = new FileWriter(newFile);//create the file
 				buffw = new BufferedWriter(myWriter);//load the file into the buffer for writting
+				System.out.println("Simulation file created successfully");
 			}
 			catch (IOException e){} 
 			
