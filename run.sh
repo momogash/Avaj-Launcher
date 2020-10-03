@@ -1,6 +1,6 @@
 #!/bin/bash
-
-find . -name *.java > sources.txt
+find . -name "*.class" -delete
+find  . -name '*.java' > sources.txt
 javac -sourcepath . @sources.txt
-cd avaj_launcher/src/
-java launcher.Simulator $1
+java Simulator/Simulator scenario.txt
+
