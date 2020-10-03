@@ -18,7 +18,10 @@ public class ReadingFile {
 			
 			//read each line while there is a next line and store in an arraylist of strings
 			
-			
+			if(scan.hasNextLine() == false) {
+				System.out.println("File cannot be empty");
+				System.exit(1);
+			}
 			
 			while (scan.hasNextLine()) {
 				//fileContent = fileContent.concat(scan.nextLine() + "\n"); //store read line
